@@ -1,0 +1,23 @@
+import React from 'react';
+import styled from 'styled-components';
+
+const Input = styled.input`
+  background: hsla(0, 0%, 96%, 0.9);
+
+  text-align: center;
+  width: ${props => props.full ? '100%' : 'auto'};
+
+  font-size: ${props => props.large ? '15px' : 'inherit'};
+  font-weight: ${props => props.large ? '600' : 'inherit'};
+  line-height: ${props => props.large ? '36px' : 'inherit'};
+
+  &:focus { box-shadow: 0 0 0 2px #80DEEA inset; };
+
+  transition: all 0.2s;
+`;
+
+const InputText = (props) => (
+  <Input type="text" {...props} />
+);
+
+export default InputText;
