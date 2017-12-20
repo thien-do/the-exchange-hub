@@ -27,22 +27,35 @@ const Arrow = styled.div`
   height: 24px; /* height to make vertical align works */
 
   font-size: 8px;
+  pointer-events: none;
 
   width: 12px;
   text-align: center;
 `;
 
-const InputSelect = ({ options, full, large, value }) => (
-  <Wrapper>
-    <Select full={full} large={large} value={value}>
-      {options.map(option => (
-        <option key={option.value} value={option.value}>
-          {option.label}
-        </option>
-      ))}
-    </Select>
-    <Arrow>▼</Arrow>
-  </Wrapper>
-);
+class InputSelect extends React.Component {
+  constructor(props) {
+    super(props);
+    this.onChange = this.onChange.bind(this);
+  }
+  onChange(e) {
+    this.props.onChange(e.target.value, e);
+  }
+  render() {
+    const { options, full, large, value } = this.props;
+    return (
+      <Wrapper>
+        <Select full={full} large={large} value={value} onChange={this.onChange}>
+          {options.map(option => (
+            <option key={option.value} value={option.value} disabled={option.disabled}>
+              {option.label}
+            </option>
+          ))}
+        </Select>
+        <Arrow>▼</Arrow>
+      </Wrapper>
+    );
+  }
+}
 
 export default InputSelect;

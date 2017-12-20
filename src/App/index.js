@@ -3,7 +3,7 @@ import React from 'react';
 import Exchange from '../Exchange';
 
 const App = () => (
-  <div className="App">
+  <div>
     <Exchange />
   </div>
 );

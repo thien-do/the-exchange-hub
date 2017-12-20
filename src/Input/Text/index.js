@@ -16,8 +16,21 @@ const Input = styled.input`
   transition: all 0.2s;
 `;
 
-const InputText = (props) => (
-  <Input type="text" {...props} />
-);
+class InputText extends React.Component {
+  constructor(props) {
+    super(props);
+    this.onChange = this.onChange.bind(this);
+  }
+  onChange(e) {
+    this.props.onChange(e.target.value, e);
+  }
+  render() {
+    const props = { ...this.props };
+    delete props.onChange;
+    return (
+      <Input type="text" onChange={this.onChange} {...props} />
+    );
+  }
+}
 
 export default InputText;
