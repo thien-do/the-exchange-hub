@@ -30,7 +30,7 @@ const ExchangeInput = ({
           <Select full large value={currency} onChange={setCurrency} options={options} />
         </Currency>
         <Amount>
-          <Text full large value={amount} onChange={setAmount} />
+          <Text step="0.00000001" type="number" full large value={amount} onChange={setAmount} />
         </Amount>
       </Inputs>
       <Balance

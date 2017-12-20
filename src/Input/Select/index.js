@@ -3,8 +3,8 @@ import styled from 'styled-components';
 
 const Wrapper = styled.div`
   position: relative;
-  background: hsla(0, 0%, 13%, 0.9);
-  color: hsla(0, 0%, 96%, 0.9);
+  background: hsla(0, 0%, 13%, 1);
+  color: hsla(0, 0%, 96%, 1);
 `;
 
 const Select = styled.select`

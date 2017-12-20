@@ -10,21 +10,27 @@ const Container = styled.div`
 `;
 
 const ExchangeInputBalance = ({ balances, currency, amount, vendor, add }) => {
-  const now = balances[currency][vendor];
-  if (now === undefined) {
-    return <Container><p>–</p><p>–</p></Container>;
+  // if no vendor is matched ---> nothing to do
+  if (!vendor) {
+    return <Container><p>&nbsp;</p><p>&nbsp;</p></Container>;
   }
+  // now we have vendor ---> check balance of that vendor
+  const balanceMessage = <span>{currency} balance at <Vendor value={vendor} /></span>;
+  const now = balances[currency][vendor];
+  // if balance is -1 ---> not connected yet
+  if (now === -1) {
+    return <Container><p>{balanceMessage}: Not connected</p><p>&nbsp;</p></Container>;
+  }
+  // now we have balance to use
   const next = now + ((add ? 1 : -1) * amount);
   const change = add ? 'increase' : 'decrease';
   return (
     <Container>
-      <p>{currency} balance at <Vendor value={vendor} /> will {change}:</p>
+      <p>{balanceMessage} will {change}:</p>
       <p>
-        <span>
-          <Money currency={currency} value={now} />
-          <span> → </span>
-          <Money currency={currency} value={next} />
-        </span>
+        <Money currency={currency} value={now} />
+        <span> → </span>
+        <Money currency={currency} value={next} />
       </p>
     </Container>
   );

@@ -8,9 +8,6 @@ import pathYes from './images/yes.svg';
 import pathNo from './images/no.svg';
 
 const Container = styled.div`
-  padding: 18px 12px 18px 72px;
-  background: hsla(0, 0%, 96%, 1);
-
   line-height: 18px;
   position: relative;
   height: 90px;
@@ -23,10 +20,10 @@ const Path = styled.img`
 
 const ExchangeVendor = ({ frm, to, vendor, markets }) => (
   <Container>
-    <Path src={vendor ? pathYes : pathNo} />
     {vendor
       ? <Available frm={frm} to={to} vendor={vendor} markets={markets} />
       : <Unavailable frm={frm} to={to} />}
+    <Path src={vendor ? pathYes : pathNo} />
   </Container>
 );
 

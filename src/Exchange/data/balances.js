@@ -9,8 +9,8 @@ export default {
     bitflyer: 2.33,
     gdax: 0,
     kraken: 1.29,
-    qryptos: 0,
-    poloniex: 0,
+    qryptos: -1,
+    poloniex: -1,
   },
   USD: {
     quoinex: 0,
@@ -19,8 +19,8 @@ export default {
   },
   ETH: {
     quoinex: 87.382,
-    qryptos: 40.32,
-    poloniex: 42.232985,
+    qryptos: -1,
+    poloniex: -1,
     kraken: 0,
   },
 };

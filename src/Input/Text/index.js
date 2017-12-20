@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 const Input = styled.input`
-  background: hsla(0, 0%, 96%, 0.9);
+  background: hsla(0, 0%, 96%, 1);
 
   text-align: center;
   width: ${props => props.full ? '100%' : 'auto'};
@@ -11,7 +11,7 @@ const Input = styled.input`
   font-weight: ${props => props.large ? '600' : 'inherit'};
   line-height: ${props => props.large ? '36px' : 'inherit'};
 
-  &:focus { box-shadow: 0 0 0 2px #80DEEA inset; };
+  &:focus { box-shadow: 0 0 0 2px hsla(187, 72%, 71%, 1) inset; };
 
   transition: all 0.2s;
 `;
