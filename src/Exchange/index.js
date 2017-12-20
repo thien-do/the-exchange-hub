@@ -7,19 +7,13 @@ import Vendor from './Vendor';
 import markets from './data/markets';
 import balances from './data/balances';
 
-const validateVendor = (state) => {
-  const vendors = markets[state.frm.currency][state.to.currency];
-  // no vendors support this exchange
-  if (!vendors) { return { ...state, vendor: '' }; }
-  // check to see if current vendor support this exchange
-  const found = vendors.find(vendor => vendor.name === state.vendor);
-  return found ? state : { ...state, vendor: vendors[0].name };
-};
+import validateAmount from './validate/amount';
+import validateVendor from './validate/vendor';
 
 class Exchange extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
+    this.state = JSON.parse(localStorage.getItem('hub-exchange')) || {
       frm: { currency: 'JPY', amount: 4000000 },
       to: { currency: 'BTC', amount: 1.80866545 },
       vendor: 'bitflyer',
@@ -37,8 +31,14 @@ class Exchange extends React.Component {
       ? { ...this.state[group], [key]: value } // frm & to
       : value; // vendor
     let nextState = { ...this.state, [group]: nextGroup };
-    nextState = key === 'currency' ? validateVendor(nextState) : nextState;
+    if (key === 'currency') {
+      nextState = validateVendor(markets, nextState);
+      nextState = validateAmount(markets, nextState, group);
+    } else if (key === 'amount') {
+      nextState = validateAmount(markets, nextState, group);
+    }
     this.setState(nextState);
+    localStorage.setItem('hub-exchange', JSON.stringify(nextState));
   }
   render() {
     const { state, set } = this;
@@ -46,18 +46,17 @@ class Exchange extends React.Component {
       <Panel>
         <form>
           <Input
-            legend="Spend exactly:" minus
+            legend="Spend:" minus
             currency={state.frm.currency} setCurrency={set.frm.currency}
             amount={state.frm.amount} setAmount={set.frm.amount}
             balances={balances} vendor={state.vendor}
           />
           <Vendor
-            frm={state.frm.currency} to={state.to.currency}
-            vendor={state.vendor} setVendor={set.vendor}
-            markets={markets}
+            frm={state.frm} to={state.to} markets={markets}
+            vendor={state.vendor}
           />
           <Input
-            legend="Receive approximately:" add
+            legend="Receive:" add
             currency={state.to.currency} setCurrency={set.to.currency}
             amount={state.to.amount} setAmount={set.to.amount}
             balances={balances} vendor={state.vendor}

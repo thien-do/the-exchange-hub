@@ -1,15 +1,33 @@
 import React from 'react';
 import styled from 'styled-components';
 
+import Available from './Available';
+import Unavailable from './Unavailable';
+
+import pathYes from './images/yes.svg';
+import pathNo from './images/no.svg';
+
 const Container = styled.div`
-  padding: 18px 0;
+  padding: 18px 12px 18px 72px;
   background: hsla(0, 0%, 96%, 1);
+
+  line-height: 18px;
+  position: relative;
+  height: 90px;
 `;
 
-const ExchangeInput = ({ markets, frm, to, vendor, setVendor }) => (
+const Path = styled.img`
+  position: absolute;
+  top: -12px; left: 36px;
+`;
+
+const ExchangeVendor = ({ frm, to, vendor, markets }) => (
   <Container>
-    {vendor || <span>none</span>}
+    <Path src={vendor ? pathYes : pathNo} />
+    {vendor
+      ? <Available frm={frm} to={to} vendor={vendor} markets={markets} />
+      : <Unavailable frm={frm} to={to} />}
   </Container>
 );
 
-export default ExchangeInput;
+export default ExchangeVendor;

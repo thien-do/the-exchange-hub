@@ -6,7 +6,7 @@ const makeFormat = (digits) =>
     maximumFractionDigits: digits,
   }).format;
 
-const infos = {
+export const infos = {
   JPY: { symbol: '¥', code: 'JPY', format: makeFormat(0) },
   USD: { symbol: '$', code: 'USD', format: makeFormat(2) },
   BTC: { symbol: '₿', code: 'BTC', format: makeFormat(8) },
@@ -15,11 +15,13 @@ const infos = {
 
 const Money = ({ value, currency, display }) => {
   const info = infos[currency];
-  return <span>{info.format(value)}</span>;
+  const number = info.format(value);
+  const prefix = display === 'none' ? '' : info[display];
+  return <span>{prefix}{number}</span>;
 };
 
 Money.defaultProps = {
-  display: 'symbol',
+  display: 'none',
 };
 
 export default Money;
