@@ -26,14 +26,11 @@ class Exchange extends React.Component {
   constructor(props) {
     super(props);
     this.state =
-      JSON.parse(localStorage.getItem('hub-exchange')) ||
-      {
+      JSON.parse(localStorage.getItem('hub-exchange')) || {
         frm: { currency: 'JPY', amount: 4000000 },
         to: { currency: 'BTC', amount: 1.80866545 },
-        vendor: 'bitflyer',
+        vendor: 'bitflyer', vendorSelect: false,
         confirm: true,
-
-        vendorSelect: false,
       };
 
     this.setStateAndSave = this.setStateAndSave.bind(this);
@@ -56,7 +53,11 @@ class Exchange extends React.Component {
       ? { ...this.state[group], [key]: value } // frm & to
       : value; // vendor
     let nextState = { ...this.state, [group]: nextGroup };
-    if (key === 'currency') {
+    if (group === 'vendor') {
+      // when change vendor we should update the amount
+      // TODO: target group here should be whatever last group chosen
+      nextState = validateAmount(markets, nextState, 'to');
+    } else if (key === 'currency') {
       nextState = validateVendor(markets, nextState);
       // when change currency we want to validate the amount of the same group
       nextState = validateAmount(markets, nextState, group);
@@ -105,9 +106,9 @@ class Exchange extends React.Component {
           {state.vendorSelect && (
             <Popover>
               <VendorSelect
-                markets={markets} balances={balances}
-                vendor={state.vendor} setVendor={set.vendor}
-                close={toggleVendorSelect}
+                markets={markets} balances={balances} close={toggleVendorSelect}
+                value={state.vendor} onChange={set.vendor}
+                frm={state.frm.currency} to={state.to.currency}
               />
             </Popover>
           )}

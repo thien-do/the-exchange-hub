@@ -1,3 +1,7 @@
+.fade-enter {
+  background: red !important;
+}
+
 * {
   padding: 0; margin: 0;
   background: none;
