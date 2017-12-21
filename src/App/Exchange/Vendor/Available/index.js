@@ -29,18 +29,15 @@ const Title = styled.span`
   font-weight: 600;
 `;
 const TitleSub = styled.span`
-  font-size: 12px;
   font-weight: 400;
   color: hsla(0, 0%, 62%, 1);
+  text-decoration: underline;
 `;
 
 const ExchangeVendorAvailable = ({ frm, to, vendor, markets, action }) => {
-  // for "+3 others" message
-  const vendors = markets[frm.currency][to.currency];
-  const exchangeSuffix = vendors.length > 1 &&
-    <TitleSub> (+{vendors.length - 1} others)</TitleSub>;
   // for "rate" and "fee"
-  const detail = vendors.find(v => v.name === vendor);
+  const detail = markets[frm.currency][to.currency]
+    .find(v => v.name === vendor);
   // (frm.amount * rate) + (frm.amount * rate * detail.fee) = to.amount
   // (frm.amount * rate) * (1 + detail.fee) = to.amount
   const rate = to.amount / ((1 + detail.fee) * frm.amount);
@@ -48,7 +45,8 @@ const ExchangeVendorAvailable = ({ frm, to, vendor, markets, action }) => {
   return (
     <Container type="button" onClick={action}>
       <Title>
-        At: <Vendor value={vendor} />{exchangeSuffix}
+        <span>At: <Vendor value={vendor} /> </span>
+        <TitleSub>(Change)</TitleSub>
       </Title>
       <Info>
         <span>{frm.currency}/{to.currency} rate: </span>
@@ -57,7 +55,7 @@ const ExchangeVendorAvailable = ({ frm, to, vendor, markets, action }) => {
       <Info>
         <span>Fee: </span>
         <Money currency={to.currency} value={fee} display="symbol" />
-        <span> ({detail.fee}%)</span>
+        <span> or {detail.fee}%</span>
       </Info>
       <Arrow src={arrow} />
     </Container>
