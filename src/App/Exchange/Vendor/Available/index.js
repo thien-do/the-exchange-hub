@@ -10,6 +10,8 @@ const Container = styled.button`
   position: relative;
   width: 100%;
 
+  color: hsla(0, 0%, 62%, 1);
+
   background: hsla(0, 0%, 96%, 1);
   &:focus { box-shadow: 0 0 0 2px hsla(187, 72%, 71.0%, 1.0) inset; };
   &:active { background: hsla(0.0, 0.0%, 93%, 1.0); };
@@ -19,18 +21,14 @@ const Arrow = styled.img`
   top: 0; bottom: 0; right: 12px;
   margin: auto;
 `;
-const Info = styled.span`
-  display: block;
-  color: hsla(0, 0%, 62%, 1);
-`;
-const Title = styled.span`
-  display: block;
+const Info = styled.span`display: block;`;
+const Title = styled.span`display: block;`;
+const TitleHiglight = styled.span`
   font-size: 13px;
   font-weight: 600;
+  color: hsla(0, 0%, 13%, 0.9);
 `;
-const TitleSub = styled.span`
-  font-weight: 400;
-  color: hsla(0, 0%, 62%, 1);
+const TitleChange = styled.span`
   text-decoration: underline;
 `;
 
@@ -45,8 +43,8 @@ const ExchangeVendorAvailable = ({ frm, to, vendor, markets, action }) => {
   return (
     <Container type="button" onClick={action}>
       <Title>
-        <span>At: <Vendor value={vendor} /> </span>
-        <TitleSub>(Change)</TitleSub>
+        <TitleHiglight>At: <Vendor value={vendor} /> </TitleHiglight>
+        (<TitleChange>Change</TitleChange>)
       </Title>
       <Info>
         <span>{frm.currency}/{to.currency} rate: </span>
