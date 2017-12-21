@@ -22,7 +22,7 @@ const Arrow = styled.img`
 `;
 const Paragraph = styled.span`display: block;`;
 
-const ExchangeVendorAvailable = ({ frm, to, vendor, markets }) => {
+const ExchangeVendorAvailable = ({ frm, to, vendor, markets, action }) => {
   // for "+3 others" message
   const vendors = markets[frm.currency][to.currency];
   const exchangeSuffix = vendors.length > 1
@@ -35,7 +35,7 @@ const ExchangeVendorAvailable = ({ frm, to, vendor, markets }) => {
   const rate = to.amount / ((1 + detail.fee) * frm.amount);
   const fee = frm.amount * rate * detail.fee;
   return (
-    <Container type="button">
+    <Container type="button" onClick={action}>
       <Paragraph>
         Exchange: <Vendor value={vendor} />{exchangeSuffix}
       </Paragraph>

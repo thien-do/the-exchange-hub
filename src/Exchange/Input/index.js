@@ -21,16 +21,23 @@ const Currency = styled.div`flex: 0 0 84px;`;
 const Amount = styled.div`flex: 1 1 0px;`;
 
 const ExchangeInput = ({
-  legend, balances, add, currency, setCurrency, amount, setAmount, vendor,
+  legend, balances, add, vendor, autoFocus,
+  currency, setCurrency, amount, setAmount,
 }) => (
   <Container>
     <Fieldset legend={legend}>
       <Inputs>
         <Currency>
-          <Select full large value={currency} onChange={setCurrency} options={options} />
+          <Select
+            full large options={options} autoFocus={autoFocus}
+            value={currency} onChange={setCurrency}
+          />
         </Currency>
         <Amount>
-          <Text step="0.00000001" type="number" full large value={amount} onChange={setAmount} />
+          <Text
+            step="any" min="0" type="number" full large
+            value={amount} onChange={setAmount}
+          />
         </Amount>
       </Inputs>
       <Balance

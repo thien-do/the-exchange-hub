@@ -18,10 +18,10 @@ const Path = styled.img`
   top: -12px; left: 36px;
 `;
 
-const ExchangeVendor = ({ frm, to, vendor, markets }) => (
+const ExchangeVendor = ({ frm, to, vendor, markets, action }) => (
   <Container>
     {vendor
-      ? <Available frm={frm} to={to} vendor={vendor} markets={markets} />
+      ? <Available frm={frm} to={to} vendor={vendor} markets={markets} action={action} />
       : <Unavailable frm={frm} to={to} />}
     <Path src={vendor ? pathYes : pathNo} />
   </Container>

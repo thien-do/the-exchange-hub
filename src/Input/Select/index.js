@@ -42,10 +42,13 @@ class InputSelect extends React.Component {
     this.props.onChange(e.target.value, e);
   }
   render() {
-    const { options, full, large, value } = this.props;
+    const { options, full, large, value, autoFocus } = this.props;
     return (
       <Wrapper>
-        <Select full={full} large={large} value={value} onChange={this.onChange}>
+        <Select
+          full={full} large={large} autoFocus={autoFocus}
+          value={value} onChange={this.onChange}
+        >
           {options.map(option => (
             <option key={option.value} value={option.value} disabled={option.disabled}>
               {option.label}
