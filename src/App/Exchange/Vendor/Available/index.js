@@ -14,20 +14,31 @@ const Container = styled.button`
   &:focus { box-shadow: 0 0 0 2px hsla(187, 72%, 71.0%, 1.0) inset; };
   &:active { background: hsla(0.0, 0.0%, 93%, 1.0); };
 `;
-const Info = styled.span`color: hsla(0, 0%, 62%, 1);`;
 const Arrow = styled.img`
   position: absolute;
   top: 0; bottom: 0; right: 12px;
   margin: auto;
 `;
-const Paragraph = styled.span`display: block;`;
+const Info = styled.span`
+  display: block;
+  color: hsla(0, 0%, 62%, 1);
+`;
+const Title = styled.span`
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+`;
+const TitleSub = styled.span`
+  font-size: 12px;
+  font-weight: 400;
+  color: hsla(0, 0%, 62%, 1);
+`;
 
 const ExchangeVendorAvailable = ({ frm, to, vendor, markets, action }) => {
   // for "+3 others" message
   const vendors = markets[frm.currency][to.currency];
-  const exchangeSuffix = vendors.length > 1
-    ? <Info> (+{vendors.length - 1} others)</Info>
-    : null;
+  const exchangeSuffix = vendors.length > 1 &&
+    <TitleSub> (+{vendors.length - 1} others)</TitleSub>;
   // for "rate" and "fee"
   const detail = vendors.find(v => v.name === vendor);
   // (frm.amount * rate) + (frm.amount * rate * detail.fee) = to.amount
@@ -36,18 +47,18 @@ const ExchangeVendorAvailable = ({ frm, to, vendor, markets, action }) => {
   const fee = frm.amount * rate * detail.fee;
   return (
     <Container type="button" onClick={action}>
-      <Paragraph>
-        Exchange: <Vendor value={vendor} />{exchangeSuffix}
-      </Paragraph>
-      <Paragraph><Info>
+      <Title>
+        At: <Vendor value={vendor} />{exchangeSuffix}
+      </Title>
+      <Info>
         <span>{frm.currency}/{to.currency} rate: </span>
         <Money currency={to.currency} value={rate} display="symbol" />
-      </Info></Paragraph>
-      <Paragraph><Info>
+      </Info>
+      <Info>
         <span>Fee: </span>
         <Money currency={to.currency} value={fee} display="symbol" />
         <span> ({detail.fee}%)</span>
-      </Info></Paragraph>
+      </Info>
       <Arrow src={arrow} />
     </Container>
   );
