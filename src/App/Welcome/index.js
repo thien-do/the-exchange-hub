@@ -50,7 +50,7 @@ const Welcome = () => (
           Thing is, there are many crypto currencies exchanges, but their tools are often more complex than what you will need.
         </Paragraph>
         <Paragraph>
-          This, therefore, is a simple tool to exchange from one currency to another, via multiple markets that you can choose from.
+          This, therefore, is a simple tool to convert from one currency to another, via multiple markets that you can choose from.
         </Paragraph>
       </div>
       <Links>

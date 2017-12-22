@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 import Menu from './Menu';
 import Welcome from './Welcome';
-import Exchange from './Exchange';
+import Convert from './Convert';
 import Balance from './Balance';
 import History from './History';
 import Markets from './Markets';
@@ -37,9 +37,9 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state =
-      JSON.parse(localStorage.getItem('hub-main')) || {
+      JSON.parse(localStorage.getItem('hub-app')) || {
         welcome: false, more: false,
-        exchange: true, history: false, balance: false, markets: false,
+        convert: true, history: false, balance: false, markets: false,
       };
 
     this.toggle = Object.keys(this.state).reduce((prev, key) => ({
@@ -49,7 +49,7 @@ class App extends React.Component {
   rawToggle(key) {
     this.setState({ [key]: !this.state[key] }, () => {
       const string = JSON.stringify(this.state);
-      localStorage.setItem('hub-main', string);
+      localStorage.setItem('hub-app', string);
     });
   }
   render() {
@@ -58,7 +58,7 @@ class App extends React.Component {
       <Container>
         <MenuContainer><Menu state={state} toggle={toggle} /></MenuContainer>
         {state.welcome && <Panel><Welcome /></Panel>}
-        {state.exchange && <Panel><Exchange /></Panel>}
+        {state.convert && <Panel><Convert /></Panel>}
         {state.balance && <Panel><Balance /></Panel>}
         {state.history && <Panel><History /></Panel>}
         {state.markets && <Panel><Markets /></Panel>}

@@ -14,7 +14,7 @@ const Input = styled.input`
   position: absolute;
   pointer-events: none;
 
-  &:focus + div { box-shadow: 0 0 0 2px hsla(187, 72%, 71%, 1) inset; };
+  &:focus + div { box-shadow: 0 0 0 2px #80DEEA inset; };
   &:active + div { background: hsla(0.0, 0.0%, 93%, 1.0); };
   &:checked + div:before { content: '✓'; };
 `;

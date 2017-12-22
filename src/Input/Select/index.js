@@ -3,12 +3,16 @@ import styled from 'styled-components';
 
 const Wrapper = styled.div`
   position: relative;
-  background: hsla(0, 0%, 13%, 1);
-  color: hsla(0, 0%, 96%, 1);
+  background: ${props => !props.inverse ? 'hsla(0, 0%, 13%, 1)' : ''};
+  color: ${props => !props.inverse ? 'hsla(0, 0%, 96%, 1)' : ''};
+
+  display: ${props => props.full ? 'block' : 'inline-block'};
 `;
 
 const Select = styled.select`
-  padding-left: 12px;
+  padding-left: ${props => props.full ? '12px' : '6px'};
+  padding-right: ${props => props.large ? '30px' : '24px'}; /* for arrow */
+
   width: ${props => props.full ? '100%' : 'auto'};
 
   font-size: ${props => props.large ? '15px' : 'inherit'};
@@ -22,7 +26,8 @@ const Select = styled.select`
 
 const Arrow = styled.div`
   position: absolute;
-  top:0; right: 12px; bottom: 0;
+  top:0; bottom: 0;
+  right: ${props => props.large ? '12px' : '6px'};
   margin: auto;
   height: 24px; /* height to make vertical align works */
 
@@ -42,9 +47,9 @@ class InputSelect extends React.Component {
     this.props.onChange(e.target.value, e);
   }
   render() {
-    const { options, full, large, value, autoFocus } = this.props;
+    const { options, full, large, value, autoFocus, inverse } = this.props;
     return (
-      <Wrapper>
+      <Wrapper full={full} large={large} inverse={inverse}>
         <Select
           full={full} large={large} autoFocus={autoFocus}
           value={value} onChange={this.onChange}
@@ -55,7 +60,7 @@ class InputSelect extends React.Component {
             </option>
           ))}
         </Select>
-        <Arrow>▼</Arrow>
+        <Arrow large={large}>▼</Arrow>
       </Wrapper>
     );
   }

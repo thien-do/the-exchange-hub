@@ -22,7 +22,7 @@ const Main = styled.button`
     return 'inherit';
   }};
 
-  &:focus { box-shadow: 0 0 0 2px hsla(187, 72%, 71%, 1) inset; };
+  &:focus { box-shadow: 0 0 0 2px #80DEEA inset; };
   &:disabled { background: hsla(0.0, 0.0%, 62.0%, 1.0); };
 
   transition: all 0.2s;

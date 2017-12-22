@@ -1,4 +1,9 @@
 import React from 'react';
+import styled from 'styled-components';
+
+const Container = styled.span`
+  font-feature-settings: "tnum";
+`;
 
 const makeFormat = (digits) =>
   Intl.NumberFormat('en-US', {
@@ -17,7 +22,7 @@ const Money = ({ value, currency, display }) => {
   const info = infos[currency];
   const number = info.format(value);
   const prefix = display === 'none' ? '' : info[display];
-  return <span>{prefix}{number}</span>;
+  return <Container>{prefix}{number}</Container>;
 };
 
 Money.defaultProps = {

@@ -40,7 +40,7 @@ const Go = styled.a`
   text-transform: uppercase;
   line-height: 18px; letter-spacing: 0.5px;
 
-  &:focus { box-shadow: 0 0 0 2px hsla(187, 72%, 71%, 1) inset; };
+  &:focus { box-shadow: 0 0 0 2px #80DEEA inset; };
 `;
 
 const More = () => (
