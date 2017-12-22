@@ -43,7 +43,7 @@ const More = () => (
   <Panel>
     <Container>
       <hr/>
-      <img src={image} alt="Rocket icon" />
+      <img width="72" height="72" src={image} alt="Rocket icon" />
       <div>
         <Title>We glad you want more</Title>
         <Paragraph>

@@ -39,7 +39,7 @@ const Welcome = () => (
   <Panel>
     <Container>
       <hr/>
-      <img src={image} alt="Rocket icon" />
+      <img width="72" height="72" src={image} alt="Paperplane icon" />
       <div>
         <Title>Welcome to The Exchange Hub</Title>
         <Paragraph>
