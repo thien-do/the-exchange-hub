@@ -15,6 +15,10 @@ const Container = styled.div`
   justify-content: space-between;
 `;
 
+const Img = styled.img`
+  margin: 0 auto;
+`;
+
 const Title = styled.h2`
   font-size: 15px;
   font-weight: 600;
@@ -43,7 +47,7 @@ const More = () => (
   <Panel>
     <Container>
       <hr/>
-      <img width="72" height="72" src={image} alt="Rocket icon" />
+      <Img width="72" height="72" src={image} alt="Rocket icon" />
       <div>
         <Title>We glad you want more</Title>
         <Paragraph>
