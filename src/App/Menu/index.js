@@ -24,6 +24,7 @@ const Menu = ({ state, toggle }) => (
     <Item label="Exchange" state={state.exchange} toggle={toggle.exchange} />
     <Item label="Balance" state={state.balance} toggle={toggle.balance} />
     <Item label="History" state={state.history} toggle={toggle.history} />
+    <Item label="Markets" state={state.markets} toggle={toggle.markets} />
     <Hr />
     <Item label="More?" state={state.more} toggle={toggle.more} />
   </Container>

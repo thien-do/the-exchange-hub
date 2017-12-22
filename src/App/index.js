@@ -2,12 +2,16 @@ import React from 'react';
 import styled from 'styled-components';
 
 import Menu from './Menu';
+import Welcome from './Welcome';
 import Exchange from './Exchange';
 import Balance from './Balance';
+import History from './History';
+import Markets from './Markets';
 import More from './More';
 
 const Container = styled.div`
-  width: 100%; height: 90%;
+  width: 100%; height: 100%;
+  overflow: scroll;
 
   display: flex;
   justify-content: center;
@@ -35,7 +39,7 @@ class App extends React.Component {
     this.state =
       JSON.parse(localStorage.getItem('hub-main')) || {
         welcome: false, more: false,
-        exchange: true, history: false, balance: false,
+        exchange: true, history: false, balance: false, markets: false,
       };
 
     this.toggle = Object.keys(this.state).reduce((prev, key) => ({
@@ -53,8 +57,11 @@ class App extends React.Component {
     return (
       <Container>
         <MenuContainer><Menu state={state} toggle={toggle} /></MenuContainer>
+        {state.welcome && <Panel><Welcome /></Panel>}
         {state.exchange && <Panel><Exchange /></Panel>}
         {state.balance && <Panel><Balance /></Panel>}
+        {state.history && <Panel><History /></Panel>}
+        {state.markets && <Panel><Markets /></Panel>}
         {state.more && <Panel><More /></Panel>}
       </Container>
     );

@@ -48,10 +48,10 @@ const More = () => (
         <Title>We glad you want more</Title>
         <Paragraph>
           This is just the beginning. There are much more interesting things in the
-          world of crypto currency trading.
+          world of crypto currency exchange and trading.
         </Paragraph>
         <Paragraph>
-          Let us proudly welcome you to the world of professional trading, with charts, margin
+          Let us welcome you to the world of professional trading, with charts, margin
           trading, multi-markets and more:
         </Paragraph>
       </div>
