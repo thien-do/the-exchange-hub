@@ -51,8 +51,8 @@ const More = () => (
       <div>
         <Title>We glad you want more</Title>
         <Paragraph>
-          This is just the beginning. There are much more interesting things in the
-          world of crypto currency exchange and trading.
+          This Exchange Hub is just the beginning. There are much more interesting things in
+          crypto currency trading.
         </Paragraph>
         <Paragraph>
           Let us welcome you to the world of professional trading, with charts, margin
