@@ -3,11 +3,12 @@ import styled from 'styled-components';
 
 import Button from 'Button';
 import Option from './Option';
-import Custom from './Custom';
+import Coming from './Coming';
 
 const Container = styled.div`
   background: hsla(0.0, 0.0%, 88%, 0.9);
   width: 100%; height: 100%;
+  backdrop-filter: blur(3px);
 
   display: flex;
   flex-direction: column;
@@ -40,7 +41,18 @@ const VendorSelect = ({ balances, markets, value, onChange, close, frm, to }) =>
           />
         </Child>
       ))}
-      <Child><Custom /></Child>
+      <Child>
+        <Coming
+          title="Limit Rate"
+          description="Exchange at a particular rate or better to take profit."
+        />
+      <Child>
+      </Child>
+        <Coming
+          title="Stop Rate"
+          description="Exchange when market reachs a certain rate to stop loss."
+        />
+      </Child>
     </List>
     <Back>
       <Button full x-large onClick={close}>Back to Exchange</Button>

@@ -16,7 +16,7 @@ const Container = styled.button`
 
   line-height: 18px;
 `;
-const Title = styled.span`display: block;`;
+const Title = styled.span`display: block; font-weight: 600;`;
 const Info = styled.span`display: block; color: hsla(0, 0%, 62%, 1);`;
 const Check = styled.img`
   position: absolute;

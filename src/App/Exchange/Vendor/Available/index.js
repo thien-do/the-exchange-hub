@@ -38,6 +38,8 @@ const ExchangeVendorAvailable = ({ frm, to, vendor, markets, action }) => {
     .find(v => v.name === vendor);
   // (frm.amount * rate) + (frm.amount * rate * detail.fee) = to.amount
   // (frm.amount * rate) * (1 + detail.fee) = to.amount
+  // TODO: the fee and rate here is actually reversed engineer from amounts
+  // we need to calculate all the thing from top and pass only
   const rate = to.amount / ((1 + detail.fee) * frm.amount);
   const fee = frm.amount * rate * detail.fee;
   return (

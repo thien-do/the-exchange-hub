@@ -8,12 +8,14 @@ const Container = styled.div`
   line-height: 18px;
   color: hsla(0, 0%, 62%, 1);
 `;
+const Title = styled.p`font-weight: 600;`;
+const Description = styled.p``;
 
-const VendorSelectCustom = () => (
+const VendorSelectComing = ({ title, description }) => (
   <Container>
-    <p>Custom rate (Coming Soon)</p>
-    <p>Set your rate and wait until it matched.</p>
+    <Title>{title} (Coming Soon)</Title>
+    <Description>{description}</Description>
   </Container>
 );
 
-export default VendorSelectCustom;
+export default VendorSelectComing;
