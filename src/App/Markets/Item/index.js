@@ -1,10 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import markets from '../_data/markets';
-import allRates from '../_data/rates';
-import colors from '../_data/colors';
+import allRates from './_data/rates';
+import colors from './_data/colors';
 
+import Header from './Header';
 import Chart from './Chart';
 import Add from './Add';
 import Exchange from './Exchange';
@@ -13,28 +13,32 @@ const Container = styled.div`
   background: hsla(0, 0%, 96%, 1);
   position: relative;
 `;
-const Header = styled.div`
-  background: hsla(0, 0%, 96%, 0.9);
+const HeaderContainer = styled.div`
   position: absolute;
   top: 0; left: 0;
-  font-weight: 600;
-  font-size: 15px;
-  padding: 6px 12px;
 `;
 const ChartContainer = styled.div`
   height: 84px;
 `;
-const Child = styled.div`
+const ExchangeContainer = styled.div`
   border-bottom: solid 2px hsla(0.0, 0.0%, 93.3%, 1.0);
 `;
+const Footer = styled.div`
+  display: flex;
+  justify-content: space-between;
+  padding: 0 12px 0 6px;
+`;
+const Info = styled.span`
+  color: hsla(0.0, 0.0%, 62.0%, 1.0);
+`;
 
-const getInitialExchanges = (symbol) => {
+const getInitialExchanges = (props) => {
   // check saved value first
-  const saved = JSON.parse(localStorage.getItem(`hub-markets-${symbol}`));
+  const saved = JSON.parse(localStorage.getItem(`hub-markets-${props.symbol}`));
   if (saved) { return saved; }
   // if not then populate with the first available exchange
-  const exchange = markets
-    .find(market => market.symbol === symbol)
+  const exchange = props.markets
+    .find(market => market.symbol === props.symbol)
     .exchanges[0];
   return [exchange]
 };
@@ -43,7 +47,7 @@ class MarketsItem extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      exchanges: getInitialExchanges(this.props.symbol),
+      exchanges: getInitialExchanges(this.props),
       rates: {},
     };
     this.addExchange = this.addExchange.bind(this);
@@ -82,26 +86,29 @@ class MarketsItem extends React.Component {
     });
   }
   render() {
-    const market = markets.find(m => m.symbol === this.props.symbol);
+    const market = this.props.markets.find(m => m.symbol === this.props.symbol);
     const { exchanges, rates } = this.state;
     return (
       <Container>
-        <Header>{market.symbol}</Header>
+        <HeaderContainer>
+          <Header market={market} remove={this.props.remove} />
+        </HeaderContainer>
         <ChartContainer>
           <Chart colors={colors} exchanges={exchanges} rates={rates} />
         </ChartContainer>
-        <div>
-          {exchanges.map((exchange, index) => (
-            <Child key={exchange}>
-              <Exchange
-                market={market} exchange={exchange}
-                rates={rates[exchange]} color={colors[index]}
-                remove={this.removeExchange}
-              />
-            </Child>
-          ))}
+        {exchanges.map((exchange, index) => (
+          <ExchangeContainer key={exchange}>
+            <Exchange
+              market={market} exchange={exchange}
+              rates={rates[exchange]} color={colors[index]}
+              remove={this.removeExchange}
+            />
+          </ExchangeContainer>
+        ))}
+        <Footer>
           <Add market={market} selected={exchanges} submit={this.addExchange} />
-        </div>
+          <Info>Last 24h rate</Info>
+        </Footer>
       </Container>
     );
   }

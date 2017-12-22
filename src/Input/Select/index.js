@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const Wrapper = styled.div`
+const Container = styled.div`
   position: relative;
   background: ${props => !props.inverse ? 'hsla(0, 0%, 13%, 1)' : ''};
   color: ${props => !props.inverse ? 'hsla(0, 0%, 96%, 1)' : ''};
@@ -10,7 +10,7 @@ const Wrapper = styled.div`
 `;
 
 const Select = styled.select`
-  padding-left: ${props => props.full ? '12px' : '6px'};
+  padding-left: ${props => props.large ? '12px' : '6px'};
   padding-right: ${props => props.large ? '30px' : '24px'}; /* for arrow */
 
   width: ${props => props.full ? '100%' : 'auto'};
@@ -49,7 +49,7 @@ class InputSelect extends React.Component {
   render() {
     const { options, full, large, value, autoFocus, inverse } = this.props;
     return (
-      <Wrapper full={full} large={large} inverse={inverse}>
+      <Container full={full} large={large} inverse={inverse}>
         <Select
           full={full} large={large} autoFocus={autoFocus}
           value={value} onChange={this.onChange}
@@ -61,7 +61,7 @@ class InputSelect extends React.Component {
           ))}
         </Select>
         <Arrow large={large}>▼</Arrow>
-      </Wrapper>
+      </Container>
     );
   }
 }

@@ -10,7 +10,7 @@ import Markets from './Markets';
 import More from './More';
 
 const Container = styled.div`
-  width: 100%; height: 100%;
+  width: 100%; height: 90%;
   overflow: scroll;
 
   display: flex;
