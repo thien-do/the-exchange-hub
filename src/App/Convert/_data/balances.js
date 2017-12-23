@@ -1,7 +1,7 @@
 export default {
   JPY: {
-    quoinex: 47378200,
-    bitflyer: 2838000,
+    quoinex: 2838000,
+    bitflyer: 47378200,
     kraken: 0,
   },
   BTC: {

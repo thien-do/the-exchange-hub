@@ -12,6 +12,8 @@ import History from './History';
 import Markets from './Markets';
 import More from './More';
 
+import Tips from './Tips';
+
 const panels = [
   { char: 'q', name: 'welcome', label: 'Welcome', Component: Welcome },
   { char: 'w', name: 'convert', label: 'Convert', Component: Convert },
@@ -21,8 +23,15 @@ const panels = [
   { char: 'y', name: 'more', label: 'More?', Component: More },
 ];
 
-const Container = styled(TransitionGroup)`
-  width: 100%; height: 90%;
+const Container = styled.div`
+  width: 100%; height: 100%;
+  overflow: hidden;
+  position: relative;
+`;
+
+const Body = styled(TransitionGroup)`
+  /* 36px is height of Footer */
+  width: 100%; height: calc(100% - 36px);
   overflow: hidden;
 
   display: flex;
@@ -41,6 +50,13 @@ const MenuCon = styled.div`
 // should not define margin here as it will affect the animation
 const PanelCon = styled.div`
   flex: 0 0 auto;
+`;
+
+// should not define margin here as it will affect the animation
+const Footer = styled.div`
+  position: absolute;
+  bottom: 0; left: 0;
+  width: 100%;
 `;
 
 const PanelTrans = ({ Component, close, ...others }) => (
@@ -86,15 +102,20 @@ class App extends React.Component {
     const { state, toggle } = this;
     return (
       <Container>
-        {/* this Transition here is because Container is a TransitionGroup */}
-        <Transition timeout={0}>
-          <MenuCon><Menu panels={panels} state={state} toggle={toggle} /></MenuCon>
-        </Transition>
-        {panels
-          .filter(panel => state[panel.name])
-          .map((panel) => (
-            <PanelTrans key={panel.name} close={toggle[panel.name]} Component={panel.Component} />
-          ))}
+        <Body>
+          {/* this Transition here is because Container is a TransitionGroup */}
+          <Transition timeout={0}>
+            <MenuCon><Menu panels={panels} state={state} toggle={toggle} /></MenuCon>
+          </Transition>
+          {panels
+            .filter(panel => state[panel.name])
+            .map((panel) => (
+              <PanelTrans
+                key={panel.name} close={toggle[panel.name]} Component={panel.Component}
+              />
+            ))}
+        </Body>
+        <Footer><Tips /></Footer>
       </Container>
     );
   };
