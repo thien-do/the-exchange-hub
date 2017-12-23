@@ -10,7 +10,7 @@ const Hr = styled.hr`
 `;
 
 const Container = styled.div`
-  background: hsla(0, 0%, 98%, 0.9);
+  background: hsla(0.0, 0.0%, 91.5%, 1.0);
   backdrop-filter: blur(3px);
   box-shadow: 0 12px 36px 0 hsla(0, 0%, 13%, 0.8);
   width: 144px;

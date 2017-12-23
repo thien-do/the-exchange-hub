@@ -18,8 +18,7 @@ const Inner = styled.div`
   position: absolute;
   top: 24px; /* top = 36 - 12 */ left: 36px;
 
-  background: hsla(0, 0%, 98%, 0.9);
-  backdrop-filter: blur(3px);
+  background: hsla(0.0, 0.0%, 91.5%, 1.0);
 
   width: 300px; height: 486px;
   overflow: hidden;
