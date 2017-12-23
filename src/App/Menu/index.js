@@ -13,21 +13,25 @@ const Container = styled.div`
   background: hsla(0, 0%, 98%, 0.9);
   backdrop-filter: blur(3px);
   box-shadow: 0 12px 36px 0 hsla(0, 0%, 13%, 0.8);
-  width: 108px;
+  width: 144px;
   padding: 6px 0;
 `;
 
-const Menu = ({ state, toggle }) => (
-  <Container>
-    <Item label="Welcome" state={state.welcome} toggle={toggle.welcome} />
-    <Hr />
-    <Item label="Exchange" state={state.convert} toggle={toggle.convert} />
-    <Item label="Balance" state={state.balance} toggle={toggle.balance} />
-    <Item label="History" state={state.history} toggle={toggle.history} />
-    <Item label="Markets" state={state.markets} toggle={toggle.markets} />
-    <Hr />
-    <Item label="More?" state={state.more} toggle={toggle.more} />
-  </Container>
-);
+const Menu = (props) => {
+  const panels = [...props.panels]; // avoid manipulate prop
+  panels.splice(1, 0, false); // for hr
+  panels.splice(6, 0, false); // for hr
+  return (
+    <Container>
+      {panels.map((panel, index) => {
+        if (!panel) { return <Hr key={index} />; } // this is hr
+        const { name, char, label } = panel;
+        const state = props.state[name];
+        const toggle = props.toggle[name];
+        return <Item key={name} char={char} label={label} state={state} toggle={toggle} />;
+      })}
+    </Container>
+  );
+};
 
 export default Menu;

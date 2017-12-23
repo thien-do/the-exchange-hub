@@ -13,12 +13,12 @@ import Markets from './Markets';
 import More from './More';
 
 const panels = [
-  { name: 'welcome', Component: Welcome },
-  { name: 'convert', Component: Convert },
-  { name: 'balance', Component: Balance },
-  { name: 'history', Component: History },
-  { name: 'markets', Component: Markets },
-  { name: 'more', Component: More },
+  { char: 'q', name: 'welcome', label: 'Welcome', Component: Welcome },
+  { char: 'w', name: 'convert', label: 'Convert', Component: Convert },
+  { char: 'e', name: 'balance', label: 'Balance', Component: Balance },
+  { char: 'r', name: 'history', label: 'History', Component: History },
+  { char: 't', name: 'markets', label: 'Markets', Component: Markets },
+  { char: 'y', name: 'more', label: 'More?', Component: More },
 ];
 
 const Container = styled(TransitionGroup)`
@@ -73,13 +73,22 @@ class App extends React.Component {
       localStorage.setItem('hub-app', string);
     });
   }
+  componentDidMount() {
+    document.addEventListener('keydown', (event) => {
+      const panel = panels.find(p => p.char === event.key);
+      if (!panel) { return; }
+      const toggle = this.toggle[panel.name];
+      if (!toggle) { return; }
+      toggle();
+    });
+  }
   render() {
     const { state, toggle } = this;
     return (
       <Container>
         {/* this Transition here is because Container is a TransitionGroup */}
         <Transition timeout={0}>
-          <MenuCon><Menu state={state} toggle={toggle} /></MenuCon>
+          <MenuCon><Menu panels={panels} state={state} toggle={toggle} /></MenuCon>
         </Transition>
         {panels
           .filter(panel => state[panel.name])
