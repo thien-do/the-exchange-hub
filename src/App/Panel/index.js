@@ -40,6 +40,7 @@ const Close = styled.button`
   text-transform: uppercase;
 
   &:focus { box-shadow: 0 0 0 2px #80DEEA inset; };
+  &:active { background: hsla(0.0, 0.0%, 12.9%, 0.3); };
 `;
 
 const Panel = ({ state, children, close }) => (

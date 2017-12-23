@@ -18,6 +18,11 @@ const Container = styled.button`
   transition: all 0.1s;
 
   &:focus { box-shadow: 0 0 0 2px #80DEEA inset; };
+  &:active {
+    background: ${props => props.state
+      ? 'hsla(0.0, 0.0%, 25.9%, 1.0)'
+      : 'hsla(0.0, 0.0%, 87.8%, 1.0)'};
+  };
 `;
 
 const Close = styled.div`
