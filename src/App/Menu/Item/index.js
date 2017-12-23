@@ -2,7 +2,9 @@ import React from 'react';
 import styled from 'styled-components';
 
 const Container = styled.button`
-  display: block;
+  display: flex;
+  justify-content: space-between;
+
   width: ${props => props.state ? 'calc(100% + 12px)' : '100%'};
   padding: 0 12px;
 
@@ -20,7 +22,8 @@ const Container = styled.button`
 
 const MenuItem = ({ label, state, toggle }) => (
   <Container state={state} type="button" onClick={toggle}>
-    {label}
+    <span>{label}</span>
+    {state && <span>✕</span>}
   </Container>
 );
 

@@ -23,7 +23,7 @@ const panels = [
 
 const Container = styled(TransitionGroup)`
   width: 100%; height: 90%;
-  overflow: scroll;
+  overflow: hidden;
 
   display: flex;
   justify-content: center;
@@ -35,7 +35,7 @@ const Container = styled(TransitionGroup)`
 
 const MenuCon = styled.div`
   flex: 0 0 auto;
-  margin-right: 72px;
+  margin-right: 36px;
 `;
 
 // should not define margin here as it will affect the animation
@@ -43,9 +43,13 @@ const PanelCon = styled.div`
   flex: 0 0 auto;
 `;
 
-const PanelTrans = ({ children, ...props }) => (
-  <Transition {...props} timeout={{ enter: 10, exit: 400 }}>
-    {(state) => <PanelCon><Panel state={state}>{children}</Panel></PanelCon>}
+const PanelTrans = ({ Component, close, ...others }) => (
+  <Transition in={others.in} timeout={{ enter: 10, exit: 400 }} unmountOnExit>
+    {(state) => (
+      <PanelCon>
+        <Panel close={close} state={state}><Component /></Panel>
+      </PanelCon>
+    )}
   </Transition>
 );
 
@@ -73,10 +77,15 @@ class App extends React.Component {
     const { state, toggle } = this;
     return (
       <Container>
-        <MenuCon><Menu state={state} toggle={toggle} /></MenuCon>
+        {/* this Transition here is because Container is a TransitionGroup */}
+        <Transition timeout={0}>
+          <MenuCon><Menu state={state} toggle={toggle} /></MenuCon>
+        </Transition>
         {panels
           .filter(panel => state[panel.name])
-          .map(({ name, Component }) => <PanelTrans key={name}><Component /></PanelTrans>)}
+          .map((panel) => (
+            <PanelTrans key={panel.name} close={toggle[panel.name]} Component={panel.Component} />
+          ))}
       </Container>
     );
   };

@@ -33,9 +33,9 @@ const Paragraph = styled.p`
 
 const Links = styled.div`
   display: flex;
-  height: 60px; /* same as More's button */
   justify-content: space-between;
-  align-items: center;
+  /* each link will have padding 12px horizontal */
+  margin: 0 -12px;
 `;
 
 const Welcome = () => (

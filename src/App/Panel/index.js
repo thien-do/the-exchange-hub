@@ -27,9 +27,25 @@ const Inner = styled.div`
   box-shadow: 0 12px 36px 0 hsla(0, 0%, 13%, 0.8);
 `;
 
-const Panel = ({ state, children }) => (
+const Close = styled.button`
+  position: absolute;
+  left: 0px; right: 0px; bottom: 6px;
+  margin: auto;
+
+  width: 108px; line-height: 36px;
+  text-align: center;
+
+  color: hsla(0, 0%, 98%, 1);
+  font-weight: 600;
+  text-transform: uppercase;
+
+  &:focus { box-shadow: 0 0 0 2px #80DEEA inset; };
+`;
+
+const Panel = ({ state, children, close }) => (
   <Outer state={state}>
     <Inner>{children}</Inner>
+    <Close type="button" onClick={close}>✕ Close</Close>
   </Outer>
 );
 
