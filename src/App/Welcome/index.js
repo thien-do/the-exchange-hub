@@ -48,7 +48,7 @@ const Welcome = () => (
         Thing is, there are many crypto currencies exchanges, but their tools are often more complex than what you will need.
       </Paragraph>
       <Paragraph>
-        This, therefore, is a simple tool to convert from one currency to another, via multiple markets that you can choose from.
+        This, therefore, is a simple tool to convert from one currency to another. And you can choose at which exchange to convert.
       </Paragraph>
     </div>
     <Links>
@@ -61,7 +61,7 @@ const Welcome = () => (
         to="https://github.com/dvkndn/exchange-hub"
       />
       <Link
-        first="version" second="11th" third="preview" highlight="second"
+        first="version" second="12th" third="preview" highlight="second"
         to="https://github.com/dvkndn/exchange-hub/releases"
       />
     </Links>
