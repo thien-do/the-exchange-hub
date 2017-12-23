@@ -1,7 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
+import { Transition, TransitionGroup } from 'react-transition-group'
 
+import Panel from './Panel';
 import Menu from './Menu';
+
 import Welcome from './Welcome';
 import Convert from './Convert';
 import Balance from './Balance';
@@ -9,7 +12,16 @@ import History from './History';
 import Markets from './Markets';
 import More from './More';
 
-const Container = styled.div`
+const panels = [
+  { name: 'welcome', Component: Welcome },
+  { name: 'convert', Component: Convert },
+  { name: 'balance', Component: Balance },
+  { name: 'history', Component: History },
+  { name: 'markets', Component: Markets },
+  { name: 'more', Component: More },
+];
+
+const Container = styled(TransitionGroup)`
   width: 100%; height: 90%;
   overflow: scroll;
 
@@ -21,17 +33,22 @@ const Container = styled.div`
   padding-right: 180px;
 `;
 
-const MenuContainer = styled.div`
+const MenuCon = styled.div`
   flex: 0 0 auto;
   margin-right: 72px;
 `;
 
-const Panel = styled.div`
+// should not define margin here as it will affect the animation
+const PanelCon = styled.div`
   flex: 0 0 auto;
-  margin-right: 36px;
-
-  &:last-child { margin-right: 0; };
 `;
+
+const PanelTrans = ({ children, ...props }) => (
+  <Transition {...props} timeout={{ enter: 10, exit: 400 }}>
+    {(state) => <PanelCon><Panel state={state}>{children}</Panel></PanelCon>}
+  </Transition>
+);
+
 
 class App extends React.Component {
   constructor(props) {
@@ -56,13 +73,10 @@ class App extends React.Component {
     const { state, toggle } = this;
     return (
       <Container>
-        <MenuContainer><Menu state={state} toggle={toggle} /></MenuContainer>
-        {state.welcome && <Panel><Welcome /></Panel>}
-        {state.convert && <Panel><Convert /></Panel>}
-        {state.balance && <Panel><Balance /></Panel>}
-        {state.history && <Panel><History /></Panel>}
-        {state.markets && <Panel><Markets /></Panel>}
-        {state.more && <Panel><More /></Panel>}
+        <MenuCon><Menu state={state} toggle={toggle} /></MenuCon>
+        {panels
+          .filter(panel => state[panel.name])
+          .map(({ name, Component }) => <PanelTrans key={name}><Component /></PanelTrans>)}
       </Container>
     );
   };

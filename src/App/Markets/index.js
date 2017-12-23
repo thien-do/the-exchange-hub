@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import Panel from 'Panel';
 import Item from './Item';
 import Add from './Add';
 
@@ -43,18 +42,16 @@ class Markets extends React.Component {
   render() {
     const { symbols } = this.state;
     return (
-      <Panel>
-        <Container>
-          {symbols.map(symbol => (
-            <Child key={symbol}>
-              <Item symbol={symbol} markets={markets} remove={this.remove} />
-            </Child>
-          ))}
-          <Child>
-            <Add symbols={symbols} markets={markets} submit={this.add} />
+      <Container>
+        {symbols.map(symbol => (
+          <Child key={symbol}>
+            <Item symbol={symbol} markets={markets} remove={this.remove} />
           </Child>
-        </Container>
-      </Panel>
+        ))}
+        <Child>
+          <Add symbols={symbols} markets={markets} submit={this.add} />
+        </Child>
+      </Container>
     );
   }
 }

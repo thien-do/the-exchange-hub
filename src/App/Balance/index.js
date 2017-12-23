@@ -1,9 +1,10 @@
 import React from 'react';
+import styled from 'styled-components';
 
-import Panel from 'Panel';
+const Container = styled.div`width: 100%;`;
 
 const Balance = () => (
-  <Panel>Here we will show balance from all accounts from all exchanges</Panel>
+  <Container>Here we will show balance from all accounts from all exchanges</Container>
 );
 
 export default Balance;

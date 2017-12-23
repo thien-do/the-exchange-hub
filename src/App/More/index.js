@@ -1,8 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import Panel from 'Panel';
-
 import image from './image.svg';
 
 const Container = styled.div`
@@ -44,26 +42,24 @@ const Go = styled.a`
 `;
 
 const More = () => (
-  <Panel>
-    <Container>
-      <hr/>
-      <Img width="72" height="72" src={image} alt="Rocket icon" />
-      <div>
-        <Title>We glad you want more</Title>
-        <Paragraph>
-          This Exchange Hub is just the beginning. There are much more interesting things in
-          crypto currency trading.
-        </Paragraph>
-        <Paragraph>
-          Let us welcome you to the world of professional trading, with charts, margin
-          trading, multi-markets and more:
-        </Paragraph>
-      </div>
-      <Go autoFocus href="https://trade.quoinex.com">
-        Go To<br />Trading Dashboard
-      </Go>
-    </Container>
-  </Panel>
+  <Container>
+    <hr/>
+    <Img width="72" height="72" src={image} alt="Rocket icon" />
+    <div>
+      <Title>We glad you want more</Title>
+      <Paragraph>
+        This Exchange Hub is just the beginning. There are much more interesting things in
+        crypto currency trading.
+      </Paragraph>
+      <Paragraph>
+        Let us welcome you to the world of professional trading, with charts, margin
+        trading, multi-markets and more:
+      </Paragraph>
+    </div>
+    <Go autoFocus href="https://trade.quoinex.com">
+      Go To<br />Trading Dashboard
+    </Go>
+  </Container>
 );
 
 export default More;

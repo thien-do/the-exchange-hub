@@ -1,8 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import Panel from 'Panel';
-
 import Input from './Input';
 import Exchange from './Exchange';
 import ExchangeSelect from './ExchangeSelect';
@@ -15,7 +13,9 @@ import balances from './_data/balances';
 import validateAmount from './_validate/amount';
 import validateExchange from './_validate/exchange';
 
-const Container = styled.div`position: relative;`;
+const Container = styled.div`
+  position: relative;
+`;
 const Popover = styled.div`
   position: absolute;
   top: 0; left: 0;
@@ -77,43 +77,41 @@ class Convert extends React.Component {
   render() {
     const { state, set, toggleExchangeSelect } = this;
     return (
-      <Panel>
-        <Container>
-          <form>
-            <Input
-              legend="Spend:" minus autoFocus
-              currency={state.frm.currency} setCurrency={set.frm.currency}
-              amount={state.frm.amount} setAmount={set.frm.amount}
-              balances={balances} exchange={state.exchange}
+      <Container>
+        <form>
+          <Input
+            legend="Spend:" minus autoFocus
+            currency={state.frm.currency} setCurrency={set.frm.currency}
+            amount={state.frm.amount} setAmount={set.frm.amount}
+            balances={balances} exchange={state.exchange}
+          />
+          <Exchange
+            frm={state.frm} to={state.to} markets={markets}
+            exchange={state.exchange} action={toggleExchangeSelect}
+          />
+          <Input
+            legend="Receive:" add
+            currency={state.to.currency} setCurrency={set.to.currency}
+            amount={state.to.amount} setAmount={set.to.amount}
+            balances={balances} exchange={state.exchange}
+          />
+          <Confirm
+            confirm={state.confirm} setConfirm={set.confirm}
+          />
+          <Submit
+            balances={balances} frm={state.frm} exchange={state.exchange}
+          />
+        </form>
+        {state.exchangeSelect && (
+          <Popover>
+            <ExchangeSelect
+              markets={markets} balances={balances} close={toggleExchangeSelect}
+              value={state.exchange} onChange={set.exchange}
+              frm={state.frm.currency} to={state.to.currency}
             />
-            <Exchange
-              frm={state.frm} to={state.to} markets={markets}
-              exchange={state.exchange} action={toggleExchangeSelect}
-            />
-            <Input
-              legend="Receive:" add
-              currency={state.to.currency} setCurrency={set.to.currency}
-              amount={state.to.amount} setAmount={set.to.amount}
-              balances={balances} exchange={state.exchange}
-            />
-            <Confirm
-              confirm={state.confirm} setConfirm={set.confirm}
-            />
-            <Submit
-              balances={balances} frm={state.frm} exchange={state.exchange}
-            />
-          </form>
-          {state.exchangeSelect && (
-            <Popover>
-              <ExchangeSelect
-                markets={markets} balances={balances} close={toggleExchangeSelect}
-                value={state.exchange} onChange={set.exchange}
-                frm={state.frm.currency} to={state.to.currency}
-              />
-            </Popover>
-          )}
-        </Container>
-      </Panel>
+          </Popover>
+        )}
+      </Container>
     );
   }
 }
