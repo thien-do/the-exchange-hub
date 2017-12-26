@@ -10,10 +10,10 @@ const Container = styled.div`
 
 const Label = ({ frm, balances, exchange }) => {
   const now = balances[frm.currency][exchange];
-  if (!exchange) { return <span>Exchange</span>; }
+  if (!exchange) { return <span>Convert</span>; }
   if (now === -1) { return <span>Connect <Exchange value={exchange} /></span>; }
   if (now - frm.amount < 0) { return <span>Deposit {frm.currency}</span>; }
-  return <span>Exchange</span>;
+  return <span>Convert</span>;
 };
 
 const ConvertSubmit = ({ frm, balances, exchange }) => (

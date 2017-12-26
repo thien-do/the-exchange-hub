@@ -38,7 +38,7 @@ const BalanceHelp = () => (
       things like above, so you can focus on trading:
     </Description>
     <Cta>
-      <Button full large onClick={start}>Getting Started →</Button>
+      <Button full large onClick={start}>Get Started →</Button>
     </Cta>
   </Container>
 );

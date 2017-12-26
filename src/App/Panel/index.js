@@ -31,7 +31,7 @@ const Inner = styled.div`
   @media (max-width: 600px) {
     height: 85vh; width: 100vw;
   }
-  overflow: hidden;
+  overflow: auto;
 
   box-shadow: 0 12px 36px 0 hsla(0, 0%, 13%, 0.8);
 `;

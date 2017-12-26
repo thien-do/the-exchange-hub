@@ -9,8 +9,7 @@ import Help from './Help';
 import balances from '_data/balances';
 
 const Container = styled.div`
-  width: 100%; height: 100%;
-  overflow: auto; padding: 24px;
+  padding: 24px;
 `;
 
 const Child = styled.div`
