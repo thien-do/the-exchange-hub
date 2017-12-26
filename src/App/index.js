@@ -38,6 +38,10 @@ const BodyOuter = styled.div`
 const BodyInner = styled(TransitionGroup)`
   /* 36px is height of Footer */
   height: calc(100% - 36px);
+  @media (max-width: 600px) {
+    height: 100%; /* no Footer in mobile */
+  }
+
   overflow: hidden;
 
   display: inline-flex;
@@ -69,6 +73,10 @@ const Footer = styled.div`
   position: absolute;
   bottom: 0; left: 0;
   width: 100%;
+
+  @media (max-width: 600px) {
+    display: none;
+  }
 `;
 
 const timeout = {
