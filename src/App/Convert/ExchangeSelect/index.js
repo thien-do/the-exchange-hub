@@ -55,7 +55,7 @@ const ExchangeSelect = ({ balances, markets, value, onChange, close, frm, to }) 
       </Child>
     </List>
     <Back>
-      <Button full x-large onClick={close}>Back to Exchange</Button>
+      <Button full x-large onClick={close}>← Back to Convert</Button>
     </Back>
   </Container>
 );
