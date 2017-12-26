@@ -3,8 +3,8 @@ import styled from 'styled-components';
 
 const Container = styled.div`
   position: relative;
-  background: ${props => !props.inverse ? 'hsla(0, 0%, 13%, 1)' : ''};
-  color: ${props => !props.inverse ? 'hsla(0, 0%, 96%, 1)' : ''};
+  background: ${props => !props.inverse ? 'hsla(0, 0%, 13%, 1)' : 'hsla(0, 0%, 96%, 1)'};
+  color: ${props => !props.inverse ? 'hsla(0, 0%, 96%, 1)' : 'hsla(0, 0%, 13%, 0.9)'};
 
   display: ${props => props.full ? 'block' : 'inline-block'};
 `;

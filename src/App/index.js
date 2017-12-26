@@ -73,9 +73,9 @@ const Footer = styled.div`
 
 const timeout = {
   // - this "enter" amount is not the duration of the animation, but like a delay
-  // - we will delay the enter transition for 100ms so the Panel can mount all the DOM
+  // - we will delay the enter transition for 200ms so the Panel can mount all the DOM
   //   before transition takes place (so prevent lagging)
-  enter: 100,
+  enter: 200,
   // - this "exit" is originally also not the duration but the delay when to unmount
   //   the DOM, thus it should be the same value as the duration
   exit: 400,

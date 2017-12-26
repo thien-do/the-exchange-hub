@@ -23,6 +23,7 @@ const Main = styled.button`
   }};
 
   &:focus { box-shadow: 0 0 0 2px #80DEEA inset; };
+  &:active { background: hsla(0.0, 0.0%, 25.9%, 1.0); };
   &:disabled { background: hsla(0.0, 0.0%, 62.0%, 1.0); };
 
   transition: all 0.2s;

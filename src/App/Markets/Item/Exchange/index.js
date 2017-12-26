@@ -7,7 +7,7 @@ import Exchange from 'Exchange';
 
 const Container = styled.div`display: flex;`;
 const Name = styled.div`flex: 1 1 0px; padding-left: 12px;`;
-const Rate = styled.div`flex: 1.5 1 0px; text-align: right;`;
+const Rate = styled.div`flex: 1.6 1 0px; text-align: right;`;
 const Change = styled.div`flex: 1 1 0px; text-align: right;`;
 const Remove = styled.button`
   flex: 0 0 auto; padding: 0 12px;
