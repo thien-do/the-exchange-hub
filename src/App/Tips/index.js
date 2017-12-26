@@ -19,7 +19,7 @@ const Tips = () => (
   <Container>
     <p>
       <Img src={keyboard} alt="keyboard icon" />
-      Fun Fact: You can navigate by keyboard here! Try pressing “Q” or “Tab”.
+      You can navigate using keyboard. Try pressing “W” or “Tab”.
     </p>
   </Container>
 );

@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import Item from './Item';
 import Add from './Add';
 
-import markets from './_data/markets';
+import markets from '_data/markets-overview';
 
 const Container = styled.div`
   width: 100%; height: 100%;

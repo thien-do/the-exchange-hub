@@ -15,12 +15,12 @@ import More from './More';
 import Tips from './Tips';
 
 const panels = [
-  { char: 'q', name: 'welcome', label: 'Welcome', Component: Welcome },
-  { char: 'w', name: 'convert', label: 'Convert', Component: Convert },
-  { char: 'e', name: 'balance', label: 'Balance', Component: Balance },
-  { char: 'r', name: 'history', label: 'History', Component: History },
-  { char: 't', name: 'markets', label: 'Markets', Component: Markets },
-  { char: 'y', name: 'more', label: 'More?', Component: More },
+  { char: 'w', name: 'welcome', label: 'Welcome', Component: Welcome },
+  { char: 'c', name: 'convert', label: 'Convert', Component: Convert },
+  { char: 'b', name: 'balance', label: 'Balance', Component: Balance },
+  { char: 'h', name: 'history', label: 'History', Component: History },
+  { char: 'm', name: 'markets', label: 'Markets', Component: Markets },
+  { char: 'z', name: 'more', label: 'More?', Component: More },
 ];
 
 const Container = styled.div`
@@ -29,21 +29,33 @@ const Container = styled.div`
   position: relative;
 `;
 
-const Body = styled(TransitionGroup)`
+const BodyOuter = styled.div`
+  width: 100%; height: 100%;
+  overflow: auto;
+  text-align: center;
+`;
+
+const BodyInner = styled(TransitionGroup)`
   /* 36px is height of Footer */
-  width: 100%; height: calc(100% - 36px);
+  height: calc(100% - 36px);
   overflow: hidden;
 
-  display: flex;
+  display: inline-flex;
   justify-content: center;
   align-items: center;
 
+  /* reset text */
+  text-align: left;
+
+  padding-left: 36px;
   /* to mimic the menu to center if there's one panel */
-  padding-right: 180px;
+  /* 216 = 36 (body padding) + 144 (menu width) + 36 (menu margin)*/
+  padding-right: 216px;
 `;
 
 const MenuCon = styled.div`
   flex: 0 0 auto;
+  width: 144px;
   margin-right: 36px;
 `;
 
@@ -59,8 +71,17 @@ const Footer = styled.div`
   width: 100%;
 `;
 
+const timeout = {
+  // - this "enter" amount is not the duration of the animation, but like a delay
+  // - we will delay the enter transition for 100ms so the Panel can mount all the DOM
+  //   before transition takes place (so prevent lagging)
+  enter: 100,
+  // - this "exit" is originally also not the duration but the delay when to unmount
+  //   the DOM, thus it should be the same value as the duration
+  exit: 400,
+};
 const PanelTrans = ({ Component, close, ...others }) => (
-  <Transition in={others.in} timeout={{ enter: 10, exit: 400 }} unmountOnExit>
+  <Transition in={others.in} timeout={timeout} unmountOnExit>
     {(state) => (
       <PanelCon>
         <Panel close={close} state={state}><Component /></Panel>
@@ -102,19 +123,24 @@ class App extends React.Component {
     const { state, toggle } = this;
     return (
       <Container>
-        <Body>
-          {/* this Transition here is because Container is a TransitionGroup */}
-          <Transition timeout={0}>
-            <MenuCon><Menu panels={panels} state={state} toggle={toggle} /></MenuCon>
-          </Transition>
-          {panels
-            .filter(panel => state[panel.name])
-            .map((panel) => (
-              <PanelTrans
-                key={panel.name} close={toggle[panel.name]} Component={panel.Component}
-              />
-            ))}
-        </Body>
+        <BodyOuter>
+          <BodyInner>
+            {/* this Transition here is because Container is a TransitionGroup */}
+            <Transition timeout={0}>
+              <MenuCon>
+                <Menu panels={panels} state={state} toggle={toggle} />
+              </MenuCon>
+            </Transition>
+            {panels
+              .filter(panel => state[panel.name])
+              .map((panel) => (
+                <PanelTrans
+                  key={panel.name} close={toggle[panel.name]}
+                  Component={panel.Component}
+                />
+              ))}
+          </BodyInner>
+        </BodyOuter>
         <Footer><Tips /></Footer>
       </Container>
     );

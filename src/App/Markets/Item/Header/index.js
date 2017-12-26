@@ -5,7 +5,7 @@ const Container = styled.div`
   background: hsla(0, 0%, 96%, 0.9);
   font-weight: 600;
   font-size: 15px;
-  padding: 0 12px;
+  padding-left: 12px;
   line-height: 36px;
 `;
 const Remove = styled.button`

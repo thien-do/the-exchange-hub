@@ -1,8 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import allRates from './_data/rates';
-import colors from './_data/colors';
+import allRates from '_data/rates';
+import colors from '_data/colors';
 
 import Header from './Header';
 import Chart from './Chart';

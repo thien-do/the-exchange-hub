@@ -7,8 +7,8 @@ import ExchangeSelect from './ExchangeSelect';
 import Confirm from './Confirm';
 import Submit from './Submit';
 
-import markets from './_data/markets';
-import balances from './_data/balances';
+import markets from '_data/markets-detail';
+import balances from '_data/balances';
 
 import validateAmount from './_validate/amount';
 import validateExchange from './_validate/exchange';
