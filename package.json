@@ -1,9 +1,11 @@
 {
-  "name": "blah",
+  "name": "the-exchange-hub",
   "version": "0.1.0",
-  "private": true,
+  "homepage": "https://dvkndn.github.io/the-exchange-hub",
+  "license": "MIT",
   "dependencies": {
     "chart.js": "^2.7.1",
+    "gh-pages": "^1.1.0",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-scripts": "1.0.17",
@@ -11,6 +13,8 @@
     "styled-components": "^2.3.0"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",

@@ -37,8 +37,8 @@ const BodyOuter = styled.div`
 `;
 
 const BodyInner = styled(TransitionGroup)`
-  /* 36px is height of TipsCon */
-  height: calc(100% - 36px);
+  /* 48px is height of TipsCon */
+  height: calc(100% - 48px);
   @media (max-width: 600px) {
     height: 100%; /* no TipsCon in mobile */
   }
