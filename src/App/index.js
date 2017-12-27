@@ -13,6 +13,7 @@ import Markets from './Markets';
 import More from './More';
 
 import Tips from './Tips';
+import Warning from './Warning';
 
 const panels = [
   { char: 'w', name: 'welcome', label: 'Welcome', Component: Welcome },
@@ -36,10 +37,10 @@ const BodyOuter = styled.div`
 `;
 
 const BodyInner = styled(TransitionGroup)`
-  /* 36px is height of Footer */
+  /* 36px is height of TipsCon */
   height: calc(100% - 36px);
   @media (max-width: 600px) {
-    height: 100%; /* no Footer in mobile */
+    height: 100%; /* no TipsCon in mobile */
   }
 
   overflow: hidden;
@@ -69,10 +70,12 @@ const PanelCon = styled.div`
 `;
 
 // should not define margin here as it will affect the animation
-const Footer = styled.div`
+const TipsCon = styled.div`
   position: absolute;
-  bottom: 0; left: 0;
+  bottom: 12px; left: 0;
   width: 100%;
+
+  pointer-events: none;
 
   @media (max-width: 600px) {
     display: none;
@@ -88,10 +91,10 @@ const timeout = {
   //   the DOM, thus it should be the same value as the duration
   exit: 400,
 };
-const PanelTrans = ({ Component, close, ...others }) => (
+const PanelTrans = ({ id, Component, close, ...others }) => (
   <Transition in={others.in} timeout={timeout} unmountOnExit>
     {(state) => (
-      <PanelCon>
+      <PanelCon id={id}>
         <Panel close={close} state={state}><Component /></Panel>
       </PanelCon>
     )}
@@ -105,7 +108,10 @@ class App extends React.Component {
     this.state =
       JSON.parse(localStorage.getItem('hub-app')) || {
         welcome: false, more: false,
-        convert: true, history: false, balance: false, markets: false,
+        convert: true, history: false,
+        balance: false, markets: false,
+        // ===
+        warning: false,
       };
 
     this.toggle = Object.keys(this.state).reduce((prev, key) => ({
@@ -117,6 +123,23 @@ class App extends React.Component {
       const string = JSON.stringify(this.state);
       localStorage.setItem('hub-app', string);
     });
+  }
+  componentDidUpdate(prevProps, prevState) {
+    const target = Object
+      .keys(this.state)
+      .find(key => key !== 'warning' && prevState[key] !== this.state[key]);
+    if (!target) { return; }
+    // we only need to care about openning case ---> skip closing case
+    if (!this.state[target]) { return; }
+    // now this means a panel is openned
+    const node = document.querySelector(`#panel-${target}`);
+    const overflow = node.getBoundingClientRect().left > window.innerWidth;
+    if (overflow) {
+      this.setState({ warning: true });
+      window.setTimeout(() => {
+        this.setState({ warning: false });
+      }, 1600);
+    }
   }
   componentDidMount() {
     document.addEventListener('keydown', (event) => {
@@ -144,12 +167,13 @@ class App extends React.Component {
               .map((panel) => (
                 <PanelTrans
                   key={panel.name} close={toggle[panel.name]}
-                  Component={panel.Component}
+                  Component={panel.Component} id={`panel-${panel.name}`}
                 />
               ))}
           </BodyInner>
         </BodyOuter>
-        <Footer><Tips /></Footer>
+        {<Warning visible={state.warning} />}
+        <TipsCon><Tips /></TipsCon>
       </Container>
     );
   };

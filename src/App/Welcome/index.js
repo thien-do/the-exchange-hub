@@ -61,7 +61,7 @@ const Welcome = () => (
         to="https://github.com/dvkndn/exchange-hub"
       />
       <Link
-        first="version" second="16th" third="prototype" highlight="second"
+        first="version" second="17th" third="prototype" highlight="second"
         to="https://github.com/dvkndn/exchange-hub/releases"
       />
     </Links>
