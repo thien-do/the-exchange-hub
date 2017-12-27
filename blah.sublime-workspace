@@ -4,6 +4,30 @@
 		"selected_items":
 		[
 			[
+				"wid",
+				"width\tproperty"
+			],
+			[
+				"excha",
+				"Exchange"
+			],
+			[
+				"con",
+				"connected"
+			],
+			[
+				"exh",
+				"exchanges"
+			],
+			[
+				"va",
+				"valueNode"
+			],
+			[
+				"Bod",
+				"BodyOuter"
+			],
+			[
 				"Con",
 				"Container"
 			],
@@ -66,10 +90,6 @@
 			[
 				"mark",
 				"market"
-			],
-			[
-				"excha",
-				"exchanges"
 			],
 			[
 				"exc",
@@ -162,10 +182,6 @@
 			[
 				"align",
 				"align-items\tproperty"
-			],
-			[
-				"con",
-				"confirm"
 			],
 			[
 				"In",
@@ -498,22 +514,6 @@
 			[
 				"glob",
 				"globAsync"
-			],
-			[
-				"coll",
-				"collectPromise"
-			],
-			[
-				"git",
-				"gitbookLib"
-			],
-			[
-				"cons",
-				"console"
-			],
-			[
-				"re",
-				"row-reverse"
 			]
 		]
 	},
@@ -529,24 +529,28 @@
 		"selected_items":
 		[
 			[
-				"rename",
-				"File: Rename"
-			],
-			[
 				"color",
 				"Color Convert: convert"
 			],
 			[
-				"mv",
-				"File: Move"
+				"dele",
+				"File: Delete"
 			],
 			[
 				"dup",
 				"File: Duplicate"
 			],
 			[
-				"dele",
-				"File: Delete"
+				"dupli",
+				"File: Duplicate"
+			],
+			[
+				"rename",
+				"File: Rename"
+			],
+			[
+				"mv",
+				"File: Move"
 			],
 			[
 				"d",
@@ -806,36 +810,49 @@
 	},
 	"file_history":
 	[
-		"/Users/dvkndn/Code/blah/src/_data/colors.js",
-		"/Users/dvkndn/Code/blah/src/Exchange/index.js",
+		"/Users/dvkndn/Code/blah/package.json",
+		"/Users/dvkndn/Code/blah/src/App/index.js",
+		"/Users/dvkndn/Code/blah/src/App/Warning/index.js",
+		"/Users/dvkndn/Code/blah/src/App/Welcome/index.js",
+		"/Users/dvkndn/Code/blah/src/Button/index.js",
+		"/Users/dvkndn/Code/blah/src/App/Menu/index.js",
+		"/Users/dvkndn/Code/blah/src/App/Convert/ExchangeSelect/index.js",
+		"/Users/dvkndn/Code/blah/src/Input/Select/index.js",
+		"/Users/dvkndn/Code/blah/src/App/Body/index.js",
+		"/Users/dvkndn/Code/blah/src/App/History/image.svg",
+		"/Users/dvkndn/Code/blah/src/App/History/index.js",
+		"/Users/dvkndn/Code/blah/src/App/Panel/index.js",
+		"/Users/dvkndn/Code/blah/src/App/Balance/index.js",
+		"/Users/dvkndn/Code/blah/src/App/Balance/Help/index.js",
+		"/Users/dvkndn/Code/blah/src/App/Convert/Submit/index.js",
 		"/Users/dvkndn/Code/blah/src/App/Markets/index.js",
+		"/Users/dvkndn/Code/blah/src/App/Menu/Item/index.js",
+		"/Users/dvkndn/Code/blah/src/App/Balance/Connect/index.js",
+		"/Users/dvkndn/Code/blah/src/App/Balance/Item/index.js",
+		"/Users/dvkndn/Code/blah/src/App/Balance/Fund/index.js",
+		"/Users/dvkndn/Code/blah/src/index.css",
+		"/Users/dvkndn/Code/blah/src/Exchange/index.js",
+		"/Users/dvkndn/Code/blah/src/Money/index.js",
+		"/Users/dvkndn/Code/blah/src/_data/balances.js",
+		"/Users/dvkndn/Code/blah/src/App/Balance/Item/Exchange/index.js",
+		"/Users/dvkndn/Code/blah/src/App/Balance/Item/Exchange/disconnect.svg",
+		"/Users/dvkndn/Code/blah/src/App/Balance/Item/Exchange/connect.svg",
+		"/Users/dvkndn/Code/blah/src/App/Markets/Item/Exchange/index.js",
+		"/Users/dvkndn/Code/blah/src/_data/colors.js",
 		"/Users/dvkndn/Code/blah/src/App/Markets/Item/index.js",
 		"/Users/dvkndn/Code/blah/src/App/Convert/index.js",
 		"/Users/dvkndn/Code/blah/src/_data/markets-overview.js",
 		"/Users/dvkndn/Code/blah/src/_data/markets-detail.js",
-		"/Users/dvkndn/Code/blah/src/_data/balances.js",
 		"/Users/dvkndn/Code/blah/src/_data/rates.js",
 		"/Users/dvkndn/Code/blah/src/App/Convert/Exchange/Available/index.js",
-		"/Users/dvkndn/Code/blah/src/App/index.js",
 		"/Users/dvkndn/Code/blah/src/App/Tips/index.js",
-		"/Users/dvkndn/Code/blah/src/App/Welcome/index.js",
-		"/Users/dvkndn/Code/blah/src/App/Menu/Item/index.js",
-		"/Users/dvkndn/Code/blah/src/App/Panel/index.js",
-		"/Users/dvkndn/Code/blah/src/App/Menu/index.js",
 		"/Users/dvkndn/Code/blah/src/App/Tips/keyboard.svg",
 		"/Users/dvkndn/Code/blah/src/App/Convert/_data/balances.js",
 		"/Users/dvkndn/Code/blah/src/App/Welcome/Link/index.js",
-		"/Users/dvkndn/Code/blah/src/Button/index.js",
-		"/Users/dvkndn/Code/blah/src/Money/index.js",
-		"/Users/dvkndn/Code/blah/src/App/Balance/index.js",
-		"/Users/dvkndn/Code/blah/src/index.css",
-		"/Users/dvkndn/Code/blah/src/App/History/index.js",
 		"/Users/dvkndn/Code/blah/src/App/More/index.js",
-		"/Users/dvkndn/Code/blah/src/App/Markets/Item/Exchange/index.js",
 		"/Users/dvkndn/Code/blah/src/App/Markets/Item/Header/index.js",
 		"/Users/dvkndn/Code/blah/src/App/Markets/Add/index.js",
 		"/Users/dvkndn/Code/blah/src/App/Markets/Item/_data/colors.js",
-		"/Users/dvkndn/Code/blah/src/Input/Select/index.js",
 		"/Users/dvkndn/Code/blah/src/App/Markets/Item/Add/index.js",
 		"/Users/dvkndn/Code/blah/src/App/Convert/ExchangeSelect/Option/index.js",
 		"/Users/dvkndn/Code/blah/src/App/Markets/_data/colors.js",
@@ -843,13 +860,11 @@
 		"/Users/dvkndn/Code/blah/src/Input/Checkbox/index.js",
 		"/Users/dvkndn/Code/blah/src/Input/Text/index.js",
 		"/Users/dvkndn/Code/blah/src/Panel/index.js",
-		"/Users/dvkndn/Code/blah/src/App/Convert/ExchangeSelect/index.js",
 		"/Users/dvkndn/Code/blah/src/Percent/index.js",
 		"/Users/dvkndn/Code/blah/src/App/Markets/_data/rates.js",
 		"/Users/dvkndn/Code/blah/src/App/Markets/_data/markets.js",
 		"/Users/dvkndn/Code/blah/src/App/Markets/Item/Chart/index.js",
 		"/Users/dvkndn/Code/blah/src/App/Convert/_data/markets.js",
-		"/Users/dvkndn/Code/blah/src/App/Convert/Submit/index.js",
 		"/Users/dvkndn/Code/blah/src/App/Convert/Input/index.js",
 		"/Users/dvkndn/Code/blah/src/App/Convert/Input/Balance/index.js",
 		"/Users/dvkndn/Code/blah/src/App/Convert/ExchangeSelect/Coming/index.js",
@@ -922,18 +937,7 @@
 		"/Users/dvkndn/Code/web-apps/trade/src/layout/workspaces/guest/index.js",
 		"/Users/dvkndn/Code/web-apps/core/src/states/theme.js",
 		"/Users/dvkndn/Code/web-apps/trade/src/layout/workspaces/index.js",
-		"/Users/dvkndn/Code/web-apps/trade/src/components/App/Menu/Layout/Workspace/Add/Container.jsx",
-		"/Users/dvkndn/Code/web-apps/trade/src/layout/workspaces/classic/index.js",
-		"/Users/dvkndn/Code/web-apps/trade/src/layout/workspaces/blank/index.js",
-		"/Users/dvkndn/Code/web-apps/trade/src/components/App/index.jsx",
-		"/Users/dvkndn/Code/web-apps/core/src/themes/styles/persephone.css",
-		"/Users/dvkndn/Code/web-apps/core/src/themes/styles/aphrodite.css",
-		"/Users/dvkndn/Code/web-apps/core/src/themes/styles/hephaestus.css",
-		"/Users/dvkndn/Code/web-apps/core/src/themes/styles/hera.css",
-		"/Users/dvkndn/Library/Application Support/Sublime Text 3/Packages/Color Highlighter/ColorHighlighter.sublime-settings",
-		"/Users/dvkndn/Code/web-apps/core/src/themes/index.js",
-		"/Users/dvkndn/Code/web-apps/home/src/components/All/Total/Label/index.jsx",
-		"/Users/dvkndn/Code/web-apps/home/src/components/All/Total/Label/translate.js"
+		"/Users/dvkndn/Code/web-apps/trade/src/components/App/Menu/Layout/Workspace/Add/Container.jsx"
 	],
 	"find":
 	{
@@ -952,6 +956,61 @@
 		"case_sensitive": true,
 		"find_history":
 		[
+			"div",
+			"span",
+			"backdrop",
+			"        ",
+			"Tips",
+			"diff",
+			"PanelTrans",
+			"Welcome",
+			"Footer",
+			"More",
+			"90vh",
+			"100vh",
+			"backgroudn",
+			"one",
+			"Description",
+			"BalanceFund",
+			"Connect",
+			"BalanceConnect",
+			"inverse",
+			"BalanceFund",
+			"Item",
+			"Fund",
+			"Balance",
+			"Percentage",
+			"ValuePercent",
+			"Action",
+			"Money",
+			"Object.keys(balances)",
+			"Toggle",
+			"Connect",
+			"Info",
+			"Value",
+			"Rate",
+			"remove",
+			"MarketsItemExchange",
+			"Currency",
+			"div",
+			"BalanceItem",
+			"ExcContainer",
+			"ExcValue",
+			"ExcName",
+			"ExchangeValue",
+			"ExchangeName",
+			"ExchangeContainer",
+			"Exchange",
+			"ExchangeContainer",
+			"HeaderContainer",
+			"MarketsItemHeader",
+			"Markets",
+			"symbol",
+			"markets",
+			"Markets",
+			"Back to Ex",
+			"Body",
+			"px",
 			"./",
 			"0.9);",
 			"&:active",
@@ -1024,62 +1083,7 @@
 			"AddContainer",
 			"Wrapper",
 			"'",
-			"disabled={disabled}",
-			"&:disabled { background",
-			"percentChange",
-			"#4DD0E1",
-			"hsla(187",
-			"hsla(187, 72%, 71%, 1)",
-			"hsla(187, 72%, 71.0%, 1.0)",
-			"hsla(187",
-			"hsla(186.8, 71.6%, 71.0%, 1.0)",
-			"80DEEA",
-			"px",
-			"0.9)",
-			"0.9",
-			"  ",
-			"Left",
-			"Right",
-			"Child",
-			"div",
-			"span",
-			"Money",
-			"digits",
-			"div",
-			"span",
-			"this.state.",
-			"span",
-			"this.props.",
-			"Add",
-			"Exchange",
-			"select",
-			"MarketsItemAdd",
-			"rates",
-			"markets",
-			"e",
-			"dataColors",
-			"dataRates",
-			"allMarkets",
-			"exchanges",
-			"m",
-			"market",
-			"dataMarkets",
-			"m",
-			"market",
-			"List",
-			"ChartContainer",
-			"div",
-			"dataMarkets",
-			"Chart",
-			"market",
-			"exchangeNames",
-			"MarketsItem",
-			"Select",
-			"this.state",
-			"MarketsItem",
-			"market",
-			"dataMarkets",
-			"Chart"
+			"disabled={disabled}"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -1149,6 +1153,62 @@
 		"selected_items":
 		[
 			[
+				"welcom",
+				"src/App/Welcome/index.js"
+			],
+			[
+				"buttons",
+				"src/Button/index.js"
+			],
+			[
+				"button",
+				"src/Button/index.js"
+			],
+			[
+				"selec",
+				"src/Input/Select/index.js"
+			],
+			[
+				"welcome",
+				"src/App/Welcome/index.js"
+			],
+			[
+				"menuti",
+				"src/App/Menu/Item/index.js"
+			],
+			[
+				"menuite",
+				"src/App/Menu/Item/index.js"
+			],
+			[
+				"appindex",
+				"src/App/Panel/index.js"
+			],
+			[
+				"inde",
+				"src/index.css"
+			],
+			[
+				"select",
+				"src/Input/Select/index.js"
+			],
+			[
+				"excha",
+				"src/Exchange/index.js"
+			],
+			[
+				"money",
+				"src/Money/index.js"
+			],
+			[
+				"balanc",
+				"src/_data/balances.js"
+			],
+			[
+				"balance",
+				"src/_data/balances.js"
+			],
+			[
 				"exchange",
 				"src/Exchange/index.js"
 			],
@@ -1173,20 +1233,8 @@
 				"src/App/Markets/Item/_data/rates.js"
 			],
 			[
-				"balance",
-				"src/App/Convert/_data/balances.js"
-			],
-			[
 				"moneyind",
 				"src/Money/index.js"
-			],
-			[
-				"button",
-				"src/Button/index.js"
-			],
-			[
-				"inde",
-				"src/index.css"
 			],
 			[
 				"panel",
@@ -1217,20 +1265,8 @@
 				"src/Button/index.js"
 			],
 			[
-				"buttons",
-				"src/Button/index.js"
-			],
-			[
-				"select",
-				"src/Input/Select/index.js"
-			],
-			[
 				"menuindex",
 				"src/App/Menu/index.js"
-			],
-			[
-				"money",
-				"src/Money/index.js"
 			],
 			[
 				"rate",
@@ -1281,10 +1317,6 @@
 				"src/App/Exchange/Input/index.js"
 			],
 			[
-				"selec",
-				"src/Input/Select/index.js"
-			],
-			[
 				"indexcs",
 				"src/index.css"
 			],
@@ -1303,10 +1335,6 @@
 			[
 				"indecs",
 				"src/index.css"
-			],
-			[
-				"balanc",
-				"src/Exchange/_data/balances.js"
 			],
 			[
 				"balan",
@@ -1635,30 +1663,6 @@
 			[
 				"translateindex",
 				"core/src/translate/index.js"
-			],
-			[
-				"transla",
-				"accounts/src/components/Demo/translate.js"
-			],
-			[
-				"handleerror",
-				"core/src/resources/_quoine/rest/handleError.js"
-			],
-			[
-				"trade/src/resources/orders/quoine/translate.js",
-				"trade/src/resources/orders/quoine/translate.js"
-			],
-			[
-				"heartbeat",
-				"core/src/resources/heartbeat/index.spec.js"
-			],
-			[
-				"getauth",
-				"core/src/resources/_bitmex/getSocket/getAuth.js"
-			],
-			[
-				"setAuth",
-				"core/src/resources/_bitmex/getSocket/setAuth.js"
 			]
 		],
 		"width": 0.0
